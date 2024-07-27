@@ -9,7 +9,7 @@ namespace ProyectoExamen2.Database
             // authser
             ) : base(options) 
         {
-            // Probable agregar authservice
+            //agregar authservice
         }
 
         //Aqui irian las tablas

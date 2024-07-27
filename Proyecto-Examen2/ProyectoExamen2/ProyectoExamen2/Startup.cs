@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProyectoExamen2.Database;
 using ProyectoExamen2.Helpers;
+using ProyectoExamen2.Services;
+using ProyectoExamen2.Services.Interfaces;
 
 namespace ProyectoExamen2
 {
@@ -24,11 +26,10 @@ namespace ProyectoExamen2
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             // Add custom service 
-            //services.AddTransient<ICategoriesService, CategoriesSQLService>();
-            //services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<ILoansService, LoansService>();
+            services.AddScoped<LoansService>();
 
-
-            // Add other services if needed
+            services.AddControllers();
 
 
             // Add AutoMapper

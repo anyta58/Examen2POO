@@ -1,11 +1,38 @@
-{
-  "id": "b0a192f3-5904-4b84-a830-5d047108eea9",
-  "name": "Ana Gonzalez",
-  "identityNumber": "556677889",
-  "loanAmount": 25000.00,
-  "commissionRate": 1.5,
-  "interestRate": 5.5,
-  "term": 60,
-  "disbursementDate": "2024-01-01T00:00:00",
-  "firstPaymentDate": "2024-02-01T00:00:00"
-}
+[
+  {
+    "id": "02e1a3f1-fabd-4307-8c13-1f41c6ffbb5d",
+    "loanId": "02e1a3f1-fabd-4307-8c13-1f41c6ffbb5d",
+    "installmentNumber": 1,
+    "paymentDate": "2023-02-01",
+    "days": 30,
+    "interest": 41.67,
+    "principal": 412.33,
+    "levelPaymentWithoutSVSD": 454.00,
+    "levelPaymentWithSVSD": 460.67,
+    "principalBalance": 9587.67
+  },
+  {
+    "id": "f8c8506d-aaf7-41fb-8129-f8fdad327f4a",
+    "loanId": "02e1a3f1-fabd-4307-8c13-1f41c6ffbb5d",
+    "installmentNumber": 2,
+    "paymentDate": "2023-03-01",
+    "days": 28,
+    "interest": 39.95,
+    "principal": 414.05,
+    "levelPaymentWithoutSVSD": 454.00,
+    "levelPaymentWithSVSD": 459.45,
+    "principalBalance": 9173.62
+  },
+  {
+    "id": "6bf6ccf0-69a9-454e-8f5b-e63665bfa788",
+    "loanId": "f8c8506d-aaf7-41fb-8129-f8fdad327f4a",
+    "installmentNumber": 1,
+    "paymentDate": "2023-03-15",
+    "days": 30,
+    "interest": 56.25,
+    "principal": 401.25,
+    "levelPaymentWithoutSVSD": 457.50,
+    "levelPaymentWithSVSD": 464.31,
+    "principalBalance": 14598.75
+  }
+]

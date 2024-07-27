@@ -1,4 +1,5 @@
 ﻿using Azure.Core.Pipeline;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -29,6 +30,9 @@ namespace ProyectoExamen2.Database.Entities
 
         [Column("first_payment_date")]
         public DateTime FirstPaymentDate { get; set; }
+
+        [JsonIgnore]
+        public ICollection<AmortizationEntity> Amortizations { get; set; }
 
     }
 }

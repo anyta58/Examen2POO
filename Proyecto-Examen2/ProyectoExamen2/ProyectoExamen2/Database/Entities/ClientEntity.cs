@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoExamen2.Database.Entities
@@ -14,5 +15,8 @@ namespace ProyectoExamen2.Database.Entities
         [RegularExpression("^[0-9]{13}$")]
         [Column("identity_number")]
         public int IdentityNumber { get; set; }
+
+        [JsonIgnore]
+        public ICollection<LoanEntity> Loans { get; set; }
     }
 }

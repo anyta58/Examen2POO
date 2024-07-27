@@ -1,0 +1,26 @@
+meta {
+  name: Loans
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{PATH}}/loans
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Pedro",
+    "identityNumber": 12345678,
+    "loanAmount": 10000,
+    "commissionRate": 2,
+    "interestRate": 16,
+    "term": 12,
+    "disbursementDate": "2024-07-27T08:38:14.815Z",
+    "firstPaymentDate": "2024-07-27T08:38:14.815Z"
+  }
+  
+  
+}

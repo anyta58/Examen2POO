@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoExamen2.Database;
 
@@ -11,9 +12,11 @@ using ProyectoExamen2.Database;
 namespace ProyectoExamen2.Migrations
 {
     [DbContext(typeof(ProyectoExamen2Context))]
-    partial class ProyectoExamen2ContextModelSnapshot : ModelSnapshot
+    [Migration("20240727083318_correciones")]
+    partial class correciones
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -6,7 +6,7 @@ namespace ProyectoExamen2.Database.Entities
     [Table("amortizations", Schema = "dbo")]
     public class AmortizationEntity : BaseEntity 
     {
-        [Column("client_id")]
+        [Column("loans_id")]
         public Guid LoanId { get; set; }
         [ForeignKey(nameof(LoanId))]
         public virtual LoanEntity Loan { get; set; }

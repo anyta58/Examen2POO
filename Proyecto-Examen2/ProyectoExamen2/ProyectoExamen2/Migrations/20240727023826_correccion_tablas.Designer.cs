@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoExamen2.Database;
 
@@ -11,9 +12,11 @@ using ProyectoExamen2.Database;
 namespace ProyectoExamen2.Migrations
 {
     [DbContext(typeof(ProyectoExamen2Context))]
-    partial class ProyectoExamen2ContextModelSnapshot : ModelSnapshot
+    [Migration("20240727023826_correccion_tablas")]
+    partial class correccion_tablas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +54,7 @@ namespace ProyectoExamen2.Migrations
 
                     b.Property<Guid>("LoanId")
                         .HasColumnType("uniqueidentifier")
-                        .HasColumnName("loans_id");
+                        .HasColumnName("loand_id");
 
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("datetime2")
@@ -138,7 +141,7 @@ namespace ProyectoExamen2.Migrations
             modelBuilder.Entity("ProyectoExamen2.Database.Entities.AmortizationEntity", b =>
                 {
                     b.HasOne("ProyectoExamen2.Database.Entities.LoanEntity", "Loan")
-                        .WithMany("Amortizations")
+                        .WithMany()
                         .HasForeignKey("LoanId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -149,22 +152,12 @@ namespace ProyectoExamen2.Migrations
             modelBuilder.Entity("ProyectoExamen2.Database.Entities.LoanEntity", b =>
                 {
                     b.HasOne("ProyectoExamen2.Database.Entities.ClientEntity", "Client")
-                        .WithMany("Loans")
+                        .WithMany()
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Client");
-                });
-
-            modelBuilder.Entity("ProyectoExamen2.Database.Entities.ClientEntity", b =>
-                {
-                    b.Navigation("Loans");
-                });
-
-            modelBuilder.Entity("ProyectoExamen2.Database.Entities.LoanEntity", b =>
-                {
-                    b.Navigation("Amortizations");
                 });
 #pragma warning restore 612, 618
         }
