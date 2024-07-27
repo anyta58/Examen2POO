@@ -1,0 +1,32 @@
+[
+  {
+    "id": "02e1a3f1-fabd-4307-8c13-1f41c6ffbb5d",
+    "clientId": "02e1a3f1-fabd-4307-8c13-1f41c6ffbb5d",
+    "loanAmount": 10000.00,
+    "commissionRate": 1.5,
+    "interestRate": 5.0,
+    "term": 24,
+    "disbursementDate": "2023-01-01T00:00:00",
+    "firstPaymentDate": "2023-02-01T00:00:00"
+  },
+  {
+    "id": "f8c8506d-aaf7-41fb-8129-f8fdad327f4a",
+    "clientId": "f8c8506d-aaf7-41fb-8129-f8fdad327f4a",
+    "loanAmount": 15000.00,
+    "commissionRate": 1.2,
+    "interestRate": 4.5,
+    "term": 36,
+    "disbursementDate": "2023-02-15T00:00:00",
+    "firstPaymentDate": "2023-03-15T00:00:00"
+  },
+  {
+    "id": "6bf6ccf0-69a9-454e-8f5b-e63665bfa788",
+    "clientId": "6bf6ccf0-69a9-454e-8f5b-e63665bfa788",
+    "loanAmount": 20000.00,
+    "commissionRate": 1.8,
+    "interestRate": 6.0,
+    "term": 48,
+    "disbursementDate": "2023-03-10T00:00:00",
+    "firstPaymentDate": "2023-04-10T00:00:00"
+  }
+]

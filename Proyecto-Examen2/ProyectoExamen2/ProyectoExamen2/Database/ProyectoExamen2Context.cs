@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProyectoExamen2.Database.Entities;
 
 namespace ProyectoExamen2.Database
 {
@@ -10,8 +11,11 @@ namespace ProyectoExamen2.Database
         {
             // Probable agregar authservice
         }
-        
-    }
 
-    //Aqui irian las tablas
+        //Aqui irian las tablas
+        public DbSet<ClientEntity> Clients { get; set; }
+        public DbSet<LoanEntity> Loans { get; set; }
+        public DbSet<AmortizationEntity> Amortizations { get; set; }
+
+    }
 }

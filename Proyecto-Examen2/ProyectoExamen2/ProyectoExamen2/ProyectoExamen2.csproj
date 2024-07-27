@@ -24,8 +24,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Database\Entities\" />
-    <Folder Include="SeedData\" />
     <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 

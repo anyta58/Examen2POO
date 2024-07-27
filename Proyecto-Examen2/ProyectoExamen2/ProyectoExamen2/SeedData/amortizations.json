@@ -1,0 +1,11 @@
+{
+  "id": "b0a192f3-5904-4b84-a830-5d047108eea9",
+  "name": "Ana Gonzalez",
+  "identityNumber": "556677889",
+  "loanAmount": 25000.00,
+  "commissionRate": 1.5,
+  "interestRate": 5.5,
+  "term": 60,
+  "disbursementDate": "2024-01-01T00:00:00",
+  "firstPaymentDate": "2024-02-01T00:00:00"
+}

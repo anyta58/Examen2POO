@@ -1,0 +1,17 @@
+[
+  {
+    "id": "02e1a3f1-fabd-4307-8c13-1f41c6ffbb5d",
+    "name": "John Doe",
+    "identityNumber": "123456789"
+  },
+  {
+    "id": "f8c8506d-aaf7-41fb-8129-f8fdad327f4a",
+    "name": "Jane Smith",
+    "identityNumber": "987654321"
+  },
+  {
+    "id": "6bf6ccf0-69a9-454e-8f5b-e63665bfa788",
+    "name": "Carlos Pérez",
+    "identityNumber": "112233445"
+  }
+]
