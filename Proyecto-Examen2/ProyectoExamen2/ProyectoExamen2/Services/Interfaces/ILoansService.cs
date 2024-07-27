@@ -6,6 +6,6 @@ namespace ProyectoExamen2.Services.Interfaces
     {
         Task<(string message, IEnumerable<AmortizationEntity> amortizationPlan)> CreateClientAndLoanAsync(ClientEntity client, LoanEntity loan);
 
-        Task<ClientEntity> GetClientWithLoansAndAmortizationsAsync(int clientId);
+        Task<ClientEntity> GetClientWithLoansAndAmortizationsAsync(Guid clientId);
     }
 }

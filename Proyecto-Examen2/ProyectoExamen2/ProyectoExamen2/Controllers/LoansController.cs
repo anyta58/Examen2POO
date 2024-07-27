@@ -48,7 +48,17 @@ namespace ProyectoExamen2.Controllers
             return Ok(new
             {
                 message,
-                amortizationPlan
+                amortizationPlan = amortizationPlan.Select(a => new
+                {
+                    a.InstallmentNumber,
+                    a.PaymentDate,
+                    a.Days,
+                    a.Interest,
+                    a.Principal,
+                    a.LevelPaymentWithoutSVSD,
+                    a.LevelPaymentWithSVSD,
+                    a.PrincipalBalance
+                })
             });
         }
 
@@ -56,17 +66,47 @@ namespace ProyectoExamen2.Controllers
         public async Task<IActionResult> GetClientAndAmortizations(Guid clientId)
         {
             // Implementar lógica para obtener datos del cliente y amortizaciones
-            var client = await _context.Clients
-                .Include(c => c.Loans)
-                    .ThenInclude(l => l.Amortizations)
-                .FirstOrDefaultAsync(c => c.Id == clientId);
+            var client = await _loansService
+                .GetClientWithLoansAndAmortizationsAsync(clientId);
 
             if (client == null)
             {
                 return NotFound();
             }
 
-            return Ok(client);
+            var response = new
+            {
+                clientId = client.Id,
+                name = client.Name,
+                identityNumber = client.IdentityNumber,
+                loanAmount = client.Loans.FirstOrDefault()?.LoanAmount ?? 0,
+                amortizationPlan = client.Loans.SelectMany(l => l.Amortizations).Select(a => new
+                {
+                    a.InstallmentNumber,
+                    a.PaymentDate,
+                    a.Days,
+                    a.Interest,
+                    a.Principal,
+                    a.LevelPaymentWithoutSVSD,
+                    a.LevelPaymentWithSVSD,
+                    a.PrincipalBalance
+                })
+            };
+
+            return Ok(response);
+        }
+
+        //Inge agregre este endpoint por que se me habian creado varios usuarios que no ocupaba en la base de datos 
+        [HttpDelete("client/{clientId}")]
+        public async Task<IActionResult> DeleteClient(Guid clientId)
+        {
+            var result = await _loansService.DeleteClientByIdAsync(clientId);
+            if (!result)
+            {
+                return NotFound(new { message = "Client not found." });
+            }
+
+            return Ok(new { message = "Cliente y préstamos asociados eliminados correctamente." });
         }
     }
 

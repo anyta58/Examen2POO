@@ -26,7 +26,7 @@ namespace ProyectoExamen2
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             // Add custom service 
-            services.AddTransient<ILoansService, LoansService>();
+            services.AddTransient<LoansService>();
             services.AddScoped<LoansService>();
 
             services.AddControllers();

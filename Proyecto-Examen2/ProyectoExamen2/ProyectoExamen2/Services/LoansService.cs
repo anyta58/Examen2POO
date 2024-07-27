@@ -6,7 +6,7 @@ using ProyectoExamen2.Services.Interfaces;
 
 namespace ProyectoExamen2.Services
 {
-    public class LoansService : ILoansService
+    public class LoansService
     {
         private readonly ProyectoExamen2Context _context;
         private readonly IMapper _mapper;
@@ -58,11 +58,6 @@ namespace ProyectoExamen2.Services
                 .FirstOrDefaultAsync(c => c.Id == clientId);
         }
 
-        public Task<ClientEntity> GetClientWithLoansAndAmortizationsAsync(int clientId)
-        {
-            throw new NotImplementedException();
-        }
-
         private IEnumerable<AmortizationEntity> CalculateAmortizationPlan(LoanEntity loan)
         {
             var plan = new List<AmortizationEntity>();
@@ -97,6 +92,25 @@ namespace ProyectoExamen2.Services
             return plan;
         }
 
+        public async Task<bool> DeleteClientByIdAsync(Guid clientId)
+        {
+            var client = await _context.Clients
+                .Include(c => c.Loans)
+                .ThenInclude(l => l.Amortizations)
+                .FirstOrDefaultAsync(c => c.Id == clientId);
+
+            if (client == null)
+            {
+                return false;
+            }
+
+            _context.Amortizations.RemoveRange(client.Loans.SelectMany(l => l.Amortizations));
+            _context.Loans.RemoveRange(client.Loans);
+            _context.Clients.Remove(client);
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
 
     }
 }
